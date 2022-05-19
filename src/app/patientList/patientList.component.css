@@ -1,0 +1,31 @@
+table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-top: 50px;
+  border-collapse: collapse;
+}
+
+th{
+  padding-bottom: 20px;
+  font-size: 1.5em;
+}
+
+tr{
+  background-color: #e7eeeb;
+}
+
+td {
+  padding: 10px;
+  border-top: solid;
+  border-bottom: solid;
+  border-color: coral;
+
+  text-align: center;
+  font-size: 1em;
+}
+
+.action{
+  padding-right: 30px;
+  padding-left: 30px;
+}
