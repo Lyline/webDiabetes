@@ -1,0 +1,16 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: lightgoldenrodyellow;
+  height: 360px;
+}
+
+img {
+  display: block;
+  margin: 20px auto 30px;
+}
+
+a{
+  font-size: 1.5em;
+  margin: 20px;
+}
