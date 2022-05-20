@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {faPenToSquare} from "@fortawesome/free-regular-svg-icons/faPenToSquare";
 import {faTrashCan} from "@fortawesome/free-regular-svg-icons/faTrashCan";
-import {MockPatientList} from "../models/mock-patientList";
 import {faListAlt} from "@fortawesome/free-regular-svg-icons/faListAlt";
+import {Patient} from "../models/patient.model";
+import {PatientService} from "../patient.service";
 
 @Component({
   selector: 'app-patientList',
@@ -15,11 +16,19 @@ export class PatientListComponent implements OnInit {
   updateIcon=faPenToSquare;
   deleteIcon=faTrashCan;
 
-  patientList= MockPatientList;
+  patientList: Patient[]=[];
+  patient: Patient | undefined;
 
-  constructor() { }
+  constructor(private service: PatientService) { }
 
   ngOnInit(): void {
+    this.getAllPatients();
   }
+
+  getAllPatients(): void{
+    this.service.getAllPatients()
+      .subscribe(patients=>this.patientList= patients);
+  }
+
 
 }
