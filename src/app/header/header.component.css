@@ -2,15 +2,20 @@ body {
   display: flex;
   justify-content: center;
   background-color: lightgoldenrodyellow;
-  height: 360px;
+  height: 300px;
 }
 
 img {
   display: block;
+  height: 200px;
   margin: 20px auto 30px;
 }
-
+.link{
+  width: 100px;
+}
 a{
   font-size: 1.5em;
   margin: 20px;
+  color:#000;
+  text-decoration: none;
 }
