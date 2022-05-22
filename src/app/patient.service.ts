@@ -22,4 +22,14 @@ export class PatientService {
     const patients= of(MockPatientList);
     return patients;
   }
+
+  getPatientById(id:number): Observable<Patient>{
+    let patient= MockPatientList.find(p=>p.id===id);
+
+    if (patient == undefined) {
+      return of(MockPatientList[0])
+    } else {
+      return of(patient);
+    }
+  }
 }

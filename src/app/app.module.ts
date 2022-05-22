@@ -7,13 +7,15 @@ import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
 import {PatientListComponent} from './patientList/patientList.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {PatientDetailComponent} from './patient-detail/patient-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    PatientListComponent
+    PatientListComponent,
+    PatientDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,61 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="content">
+    <div>
+      <ul *ngIf="patient">
+        <li>
+          <label>Nom :</label>
+          <div class="identity">{{patient.lastName}}</div>
+        </li>
+        <li>
+          <label>Prénom :</label>
+          <div class="identity">{{patient.firstName}}</div>
+        </li>
+        <li>
+          <label>Âge :</label>
+          <div class="identity">{{patient.age}}</div>
+        </li>
+        <li>
+          <label>Sexe :</label>
+          <div class="identity">{{patient.gender}}</div>
+        </li>
+        <li>
+          <label>Adresse :</label>
+          <div class="identity">{{patient.address}}</div>
+        </li>
+        <li>
+          <label>Téléphone :</label>
+          <div class="identity">{{patient.phone}}</div>
+        </li>
+        <li>
+          <label>Diagnostic :</label>
+          <div class="identity">{{patient.diagnostic}}</div>
+        </li>
+      </ul>
+      <div class="button_list">
+        <button type="button">Modifier</button>
+        <button type="button">Supprimer</button>
+      </div>
+    </div>
+    <div class="note_component" >
+      <h3>Notes</h3>
+      <div class="table_container">
+        <p *ngIf="patient.notes.length===0">Aucune note est enregistrée pour le moment</p>
+        <table *ngIf="patient.notes.length!=0">
+          <tr *ngFor="let note of patient.notes">
+            <td class="data_content">
+              {{note.noteContent}}
+            </td>
+            <td class="data_action">
+              <fa-icon [icon]="updateIcon" class="action"></fa-icon>
+              <fa-icon [icon]="deleteIcon" class="action"></fa-icon>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <button type="button">Nouvelle note</button>
+    </div>
+
+  </div>
+</div>
