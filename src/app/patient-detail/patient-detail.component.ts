@@ -3,7 +3,7 @@ import {faTrashCan} from "@fortawesome/free-regular-svg-icons/faTrashCan";
 import {faPenToSquare} from "@fortawesome/free-regular-svg-icons/faPenToSquare";
 import {Patient} from "../models/patient.model";
 import {PatientService} from "../patient.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -28,7 +28,7 @@ export class PatientDetailComponent implements OnInit {
   updateIcon=faPenToSquare;
   deleteIcon=faTrashCan
 
-  constructor(public service: PatientService, public route: ActivatedRoute) { }
+  constructor(public service: PatientService, public route: ActivatedRoute, public router: Router) { }
 
   ngOnInit(): void {
     const id: number = Number(this.route.snapshot.paramMap.get('patientId'));
@@ -38,5 +38,10 @@ export class PatientDetailComponent implements OnInit {
   getPatientById(id: number): void{
     this.service.getPatientById(id)
       .subscribe(patient=>this.patient= patient);
+  }
+
+  deletePatient(): void{
+    this.service.deletePatientById(this.patient.id);
+    this.router.navigateByUrl('/patients').then();
   }
 }

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from "rxjs";
 import {Patient} from "./models/patient.model";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,7 @@ export class PatientService {
       diagnostic:'In Danger'}
   ];
 
-  constructor() {
+  constructor(public router: Router) {
   }
   /*constructor(private http: HttpClient) { }
 
@@ -62,17 +63,23 @@ export class PatientService {
     let patient= this.patientList.find(p=>p.id==id);
 
     if (patient == undefined) {
+      this.router.navigateByUrl('/patients').then();
       return of(this.patientList[0])
-    } else {
-      return of(patient);
     }
+    return of(patient);
   }
 
   createPatient(patient: Patient): Observable<Patient>{
-    patient.id=this.patientList.length+1;
+    let lastPatient=this.patientList[this.patientList.length-1];
+    patient.id=lastPatient.id+1;
     patient.notes=[];
     patient.diagnostic='None';
     this.patientList.push(patient);
     return of(patient);
+  }
+
+  deletePatientById(id: number): void{
+    let patientToDelete = this.patientList.findIndex(p => p.id == id);
+    this.patientList.splice(patientToDelete,1);
   }
 }

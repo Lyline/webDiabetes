@@ -1,5 +1,6 @@
 <app-header></app-header>
-<table class="patientList">
+<div *ngIf="patientList.length==0" style="text-align:center">Aucun patient enregistré</div>
+<table class="patientList" *ngIf="patientList.length>0">
   <th>Prénom</th>
   <th>Nom</th>
   <th>Date de naissance</th>
@@ -13,12 +14,9 @@
     <td>{{patient.address}}</td>
 
     <td>
-      <a routerLink="/patients/consultation/{{patient.id}}">
-        <fa-icon [icon]="getIcon" class="action"></fa-icon>
-      </a>
-
-      <fa-icon [icon]="updateIcon" class="action"></fa-icon>
-      <fa-icon [icon]="deleteIcon" class="action"></fa-icon>
+      <fa-icon [icon]="getIcon" class="action read" routerLink="/patients/consultation/{{patient.id}}"></fa-icon>
+      <fa-icon [icon]="updateIcon" class="action update"></fa-icon>
+      <fa-icon [icon]="deleteIcon" class="action delete" (click)="deletePatient(patient.id)"></fa-icon>
     </td>
   </tr>
 </table>

@@ -29,3 +29,19 @@ td {
   padding-right: 30px;
   padding-left: 30px;
 }
+
+.read{
+  color: #69c00c
+}
+
+.delete{
+  color: #ff3d49
+}
+
+.update{
+  color: #c0761c;
+}
+
+.action:hover{
+  color: black;
+}
