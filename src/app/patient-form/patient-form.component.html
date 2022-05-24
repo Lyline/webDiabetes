@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="container">
+  <form [formGroup]="patientForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="field">
+        <label for="lastName">Nom :</label>
+        <div>
+          <input type="text" name="lastName" id="lastName"
+                 formControlName="lastName">
+          <span class="mandatory">*</span>
+        </div>
+
+        <p class="error" *ngIf="patientForm.get('lastName')?.hasError('required')">Veuillez saisir le nom</p>
+    </div>
+
+    <div class="field">
+      <label for="firstName">Prénom :</label>
+      <div>
+        <input type="text" name="firstName" id="firstName" formControlName="firstName">
+        <span class="mandatory">*</span>
+      </div>
+      <p class="error" *ngIf="patientForm.get('firstName')?.hasError('required')">Veuillez saisir le prénom</p>
+    </div>
+
+    <div class="field">
+      <label for="dateOfBirth">Date de naissance :</label>
+      <div>
+        <input type="date" name="dateOfBirth" id="dateOfBirth"
+                  placeholder="dd-mm-yyyy" value="" formControlName="dateOfBirth">
+        <span class="mandatory">*</span>
+      </div>
+      <p class="error" *ngIf="patientForm.get('dateOfBirth')?.hasError('required')">Veuillez saisir la date de naissance</p>
+    </div>
+
+    <div class="field">
+      <label>Sexe :</label>
+      <div>
+        <label for="M">Homme</label>
+        <input type="radio" id="M" value="M" class="gender" formControlName="gender">
+        <label for="F">Femme</label>
+        <input type="radio" id="F" value="F" class="gender" formControlName="gender">
+        <span class="mandatory">*</span>
+      </div>
+      <p class="error" *ngIf="patientForm.get('gender')?.hasError('required')">Veuillez saisir le genre</p>
+    </div>
+
+    <div class="field">
+      <label for="address">Adresse :</label>
+      <input type="text" name="address" id="address" formControlName="address">
+    </div>
+
+    <div class="field">
+      <label for="phone">Téléphone :</label>
+      <input type="text" name="phone" id="phone" formControlName="phone">
+    </div>
+    <button type="submit" [disabled]="!patientForm.valid">Enregistrer</button>
+  </form>
+</div>

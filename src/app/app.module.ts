@@ -8,6 +8,8 @@ import {HeaderComponent} from './header/header.component';
 import {PatientListComponent} from './patientList/patientList.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {PatientDetailComponent} from './patient-detail/patient-detail.component';
+import {PatientFormComponent} from './patient-form/patient-form.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,12 +17,15 @@ import {PatientDetailComponent} from './patient-detail/patient-detail.component'
     HomeComponent,
     HeaderComponent,
     PatientListComponent,
-    PatientDetailComponent
+    PatientDetailComponent,
+    PatientFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

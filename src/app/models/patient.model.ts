@@ -9,12 +9,11 @@ export class Patient{
   gender: string;
   address: string;
   phone: string;
-  notes:Array<Note>;
+  notes: Array<Note>;
   diagnostic: string;
 
 
-  constructor(id: number, firstName: string, lastName: string, dateOfBirth: string, age: number,
-              gender: string, address: string, phone: string, notes: Array<Note>, diagnostic: string) {
+  public constructor(id: number, firstName: string, lastName: string, dateOfBirth: string, age: number, gender: string, address: string, phone: string, notes: Array<Note>, diagnostic: string) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -26,6 +25,5 @@ export class Patient{
     this.notes = notes;
     this.diagnostic = diagnostic;
   }
-
 
 }
