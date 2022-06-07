@@ -35,7 +35,13 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    MatDialogModule,
+    BrowserAnimationsModule
+  ],
+  exports:[
+    FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

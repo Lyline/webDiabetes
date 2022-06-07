@@ -1,0 +1,10 @@
+  <h3>Nouvelle note</h3>
+  <form [formGroup]="noteForm">
+    <textarea name="noteContent" id="" cols="45" rows="10" formControlName="noteContent"></textarea>
+    <div class="button_list">
+      <button (click)="dialogRef.close(false)">Annuler</button>
+      <button (click)="submit(noteForm.value)">Enregistrer</button>
+    </div>
+  </form>
+
+
