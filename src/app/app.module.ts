@@ -8,8 +8,12 @@ import {HeaderComponent} from './header/header.component';
 import {PatientListComponent} from './patientList/patientList.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {PatientDetailComponent} from './patient-detail/patient-detail.component';
-import {PatientFormComponent} from './patient-form/patient-form.component';
+import {PatientAddFormComponent} from './patient-add-form/patient-add-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {MatDialogModule} from "@angular/material/dialog";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     HeaderComponent,
     PatientListComponent,
     PatientDetailComponent,
-    PatientFormComponent
+    PatientAddFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-  <form [formGroup]="patientForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="patientForm" (submit)="onSubmit()" novalidate>
     <div class="field">
         <label for="lastName">Nom :</label>
         <div>

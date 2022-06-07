@@ -7,15 +7,19 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-patient-new',
-  templateUrl: './patient-form.component.html',
-  styleUrls: ['./patient-form.component.css']
+  templateUrl: './patient-add-form.component.html',
+  styleUrls: ['./patient-add-form.component.css']
 })
-export class PatientFormComponent implements OnInit {
-  patientForm: FormGroup;
+export class PatientAddFormComponent implements OnInit {
+  patientForm!: FormGroup;
   patient!: Patient;
 
-  constructor(public service: PatientService, private fb: FormBuilder, private router: Router) {
+  constructor(public service: PatientService, private fb: FormBuilder, private route: Router) {
+  }
+
+  ngOnInit(): void {
     this.patientForm= this.fb.group({
+      id:[''],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
@@ -25,12 +29,11 @@ export class PatientFormComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-  }
-
   onSubmit(){
-      this.service.createPatient(this.patientForm.value).subscribe(newPatient => this.patient = newPatient)
-      this.router.navigateByUrl("/patients/consultation/" + this.patient.id).then();
+     this.service.createPatient(this.patientForm.value).subscribe(newPatient=> {
+       this.patient = newPatient
+       this.route.navigateByUrl("/patients/consultation/"+this.patient.id).then();
+     });
   }
 
 }

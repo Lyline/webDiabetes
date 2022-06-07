@@ -15,7 +15,7 @@
 
     <td>
       <fa-icon [icon]="getIcon" class="action read" routerLink="/patients/consultation/{{patient.id}}"></fa-icon>
-      <fa-icon [icon]="updateIcon" class="action update"></fa-icon>
+      <fa-icon [icon]="updateIcon" class="action update" routerLink="/patients/consultation/{{patient.id}}/update"></fa-icon>
       <fa-icon [icon]="deleteIcon" class="action delete" (click)="deletePatient(patient.id)"></fa-icon>
     </td>
   </tr>
