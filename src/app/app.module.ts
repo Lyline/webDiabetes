@@ -10,7 +10,10 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {PatientDetailComponent} from './patient-detail/patient-detail.component';
 import {PatientAddFormComponent} from './patient-add-form/patient-add-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {PatientUpdateFormComponent} from './patient-update-form/patient-update-form.component';
 import {HttpClientModule} from "@angular/common/http";
+import {NoteListComponent} from './note-list/note-list.component';
+import {NoteAddComponent} from './note-add/note-add.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
@@ -23,6 +26,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     PatientListComponent,
     PatientDetailComponent,
     PatientAddFormComponent,
+    PatientUpdateFormComponent,
+    NoteListComponent,
+    NoteAddComponent,
   ],
   imports: [
     BrowserModule,

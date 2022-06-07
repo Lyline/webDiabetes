@@ -1,0 +1,52 @@
+container{
+
+}
+form{
+  display: block;
+  width: 330px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+
+  font-size: 1.2em;
+}
+
+.field{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+input{
+  width: 300px;
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+input.date{
+  width: 150px;
+}
+input.gender{
+  width: 50px;
+}
+.mandatory{
+  color: #ff3d49;
+}
+button{
+  display: block;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background: #ffd8be;
+  border: solid 1px #000;
+  border-radius: 5px;
+
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.error{
+  color: #ff3d49;
+  font-style: italic;
+  font-size: 0.9em;
+}
