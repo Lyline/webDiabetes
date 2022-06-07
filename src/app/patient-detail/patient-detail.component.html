@@ -34,28 +34,10 @@
         </li>
       </ul>
       <div class="button_list">
-        <button type="button">Modifier</button>
+        <button type="button" routerLink="/patients/consultation/{{patient.id}}/update">Modifier</button>
         <button type="button" (click)="deletePatient()">Supprimer</button>
       </div>
     </div>
-    <div class="note_component" >
-      <h3>Notes</h3>
-      <div class="table_container">
-        <p *ngIf="patient.notes.length===0">Aucune note est enregistrée pour le moment</p>
-        <table *ngIf="patient.notes.length!=0">
-          <tr *ngFor="let note of patient.notes">
-            <td class="data_content">
-              {{note.noteContent}}
-            </td>
-            <td class="data_action">
-              <fa-icon [icon]="updateIcon" class="action"></fa-icon>
-              <fa-icon [icon]="deleteIcon" class="action"></fa-icon>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <button type="button">Nouvelle note</button>
-    </div>
-
   </div>
+  <app-note-list [patient]="patient" (patientDataChanged)="refreshPatient()" ></app-note-list>
 </div>

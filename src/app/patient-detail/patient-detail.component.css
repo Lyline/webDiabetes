@@ -1,8 +1,10 @@
 .container{
-  display: block;
+  display: flex;
+  margin-top: 15px;
   margin-left:auto;
   margin-right: auto;
-  width: 95%;
+  padding: 15px;
+  width: 97%;
   background: #ffd8be;
   border-radius: 15px;
 }
@@ -11,14 +13,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
-}
-
-ul{
-  width: 600px;
-}
-
-li{
-  display: flex;
+  width: 900px;
 }
 
 label{
@@ -32,7 +27,15 @@ div.identity{
   margin: 20px;
 }
 
-.note_component{
+ul{
+  width: 600px;
+}
+
+li{
+  display: flex;
+}
+
+app-note-list{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,68 +47,18 @@ div.identity{
   border-radius: 50px;
 }
 
-h3{
-  font-size: 1.3em;
-}
-
-.table_container{
-  height: 400px;
-
-}
-
-table{
-  display: block;
-  position: sticky;
-
-  height: 400px;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  border-collapse: separate;
-  border-spacing: 0 10px;
-  overflow-y: scroll;
-
-  background-color: #FFE8CE;
-}
-
-tr{
-  background: #ffd8be;
-}
-
-td.data_content{
-  width: 700px;
-  padding: 5px;
-  font-size: 1em;
-  text-indent: 10px;
-  border-radius: 10px 0 0 10px;
-}
-
-td.data_action{
-  font-size: 20px;
-  margin-top: auto;
-  margin-bottom: auto;
-  vertical-align: middle;
-  border-radius: 0 10px 10px 0;
-}
-
-.action{
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.button_list{
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
 button{
   width: 150px;
   font-size: 1.2em;
   background: #ffd8be;
   border: solid 1px #000;
   border-radius: 5px;
+}
+
+.button_list{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
 button:hover{

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {faTrashCan} from "@fortawesome/free-regular-svg-icons/faTrashCan";
-import {faPenToSquare} from "@fortawesome/free-regular-svg-icons/faPenToSquare";
+
 import {Patient} from "../models/patient.model";
 import {PatientService} from "../patient.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -25,14 +24,17 @@ export class PatientDetailComponent implements OnInit {
     diagnostic:''
   };
 
-  updateIcon=faPenToSquare;
-  deleteIcon=faTrashCan
 
-  constructor(public service: PatientService, public route: ActivatedRoute, public router: Router) { }
+
+  constructor(public service: PatientService, public activatedRoute: ActivatedRoute, public router: Router) { }
 
   ngOnInit(): void {
-    const id: number = Number(this.route.snapshot.paramMap.get('patientId'));
+    const id: number = Number(this.activatedRoute.snapshot.paramMap.get('patientId'));
     this.getPatientById(id);
+  }
+
+  refreshPatient(): void {
+    this.getPatientById(this.patient.id);
   }
 
   getPatientById(id: number): void{
@@ -41,7 +43,13 @@ export class PatientDetailComponent implements OnInit {
   }
 
   deletePatient(): void{
-    this.service.deletePatientById(this.patient.id);
-    this.router.navigateByUrl('/patients').then();
+    this.service.deletePatientById(this.patient.id).subscribe(patient=> {
+      this.patient = patient;
+      this.router.navigateByUrl('/patients').then();
+    });
+  }
+
+  updatePatient(id: number): void{
+    this.router.navigateByUrl('/patients/consultation/'+id+'/update').then();
   }
 }
