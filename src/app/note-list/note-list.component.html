@@ -1,0 +1,18 @@
+<div class="note_component" >
+  <h3>Notes</h3>
+  <div>
+    <p class="error" *ngIf="patient.notes.length===0">Aucune note est enregistrée pour le moment</p>
+    <table *ngIf="patient.notes.length!=0">
+      <tr *ngFor="let note of patient.notes">
+        <td class="data_content">
+         {{note.noteContent}}
+         </td>
+        <td class="data_action">
+          <fa-icon [icon]="updateIcon" class="action" (click)="updateNote(note)"></fa-icon>
+          <fa-icon [icon]="deleteIcon" class="action" (click)="deleteNote(note)"></fa-icon>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button type="button" (click)="createNote()">Nouvelle note</button>
+</div>

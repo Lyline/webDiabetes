@@ -40,17 +40,15 @@ export class PatientService {
     return this.http.delete<Patient>(`${this.baseUrl}/patients/`+id);
   }
 
-  createPatient(patient: Patient): Observable<Patient>{
-    let lastPatient=this.patientList[this.patientList.length-1];
-    patient.id=lastPatient.id+1;
-    patient.notes=[];
-    patient.diagnostic='None';
-    this.patientList.push(patient);
-    return of(patient);
+  createNote(note:Note): Observable<Note> {
+    return this.http.post<Note>(`${this.baseUrl}/patients/${note.patientId}/notes`,note);
   }
 
-  deletePatientById(id: number): void{
-    let patientToDelete = this.patientList.findIndex(p => p.id == id);
-    this.patientList.splice(patientToDelete,1);
+  updateNote(note: Note): Observable<Note>{
+    return this.http.put<Note>(`${this.baseUrl}/patients/${note.patientId}/notes/${note.id}`,note);
+  }
+
+  deleteNote(note:Note): Observable<Note>{
+    return this.http.delete<Note>(`${this.baseUrl}/patients/${note.patientId}/notes/${note.id}`);
   }
 }
